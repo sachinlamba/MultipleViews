@@ -67,16 +67,33 @@ class ViewController: UIViewController {
                 let vc = UIView(frame: CGRectMake((CGFloat)(i)*width/2, 20 + (CGFloat)(j)*height/2, width/2, height/2))
                 vc.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
                 vc.layer.cornerRadius = 25
+  //            vc.layer.borderColor = textcolors[Int(arc4random_uniform(4) + 1)].color()
+                vc.layer.borderWidth = (CGFloat)(Int(arc4random_uniform(10)))
+                
                 view.addSubview(vc)
 
             }
         }
         
         for subview in view.subviews {
-            let label: UILabel = UILabel(frame: CGRectMake(0, 20 + 0, width/2, height/2))
-            label.text = "Hello"
+            let label: UILabel = UILabel(frame: CGRectMake(0, 20 + 0, width/2 - width/4, height/2 - height/4))
+            label.text = "Hello view on \(width/2) and \(height/2)"
+            
+            label.layer.backgroundColor = UIColor.brownColor().CGColor
             label.textAlignment = .Center
             label.textColor = textcolors[Int(arc4random_uniform(4) + 1)].color()
+            label.layer.shadowRadius = CGFloat(1)
+            label.layer.shadowOpacity = 0.5
+            label.layer.shadowColor = UIColor.redColor().CGColor
+            //label.shadowOffset = CGSize(width: 5, height: 5)
+            label.layer.shadowOffset = CGSize(width: 5, height: 5)
+            label.numberOfLines = 0
+            
+       
+            //     label.layoutMargins.right = CGFloat(width/2 - 20)
+            
+         //   CGRect rect = [self.textView.layoutManager usedRectForTextContainer:self.textView.textContainer];
+
             subview.addSubview(label)
         }
 
