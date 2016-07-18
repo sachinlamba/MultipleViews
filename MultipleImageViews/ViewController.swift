@@ -30,6 +30,8 @@ enum Color: String {
 class ViewController: UIViewController {
     
     var colors = [Color.Red, Color.White, Color.Black, Color.Blue, Color.Green]
+    
+    var textcolors = [Color.Red, Color.Black, Color.Blue, Color.White, Color.Green]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,39 +41,45 @@ class ViewController: UIViewController {
         
         let width = size.width
         let height = size.height
+//        
+//        let vc1 = UIView(frame: CGRectMake(0, 20 + 0, width/2, height/2))
+//        vc1.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
+//        vc1.layer.cornerRadius = 25
+//        view.addSubview(vc1)
+//        
+//        let vc2 = UIView(frame: CGRectMake(width/2, 20 + 0, width/2, height/2))
+//        vc2.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
+//        vc2.layer.cornerRadius = 25
+//        view.addSubview(vc2)
+//        
+//        let vc3 = UIView(frame: CGRectMake(0, 20 + height/2, width/2, height/2 - 20))
+//        vc3.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
+//        vc3.layer.cornerRadius = 25
+//        view.addSubview(vc3)
+//        
+//        let vc4 = UIView(frame: CGRectMake(width/2, 20 + height/2, width/2, height/2 - 20))
+//        vc4.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
+//        vc4.layer.cornerRadius = 25
+//        view.addSubview(vc4)
+//        
+        for i in 0 ... 1 {
+            for j in 0 ... 1 {
+                let vc = UIView(frame: CGRectMake((CGFloat)(i)*width/2, 20 + (CGFloat)(j)*height/2, width/2, height/2))
+                vc.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
+                vc.layer.cornerRadius = 25
+                view.addSubview(vc)
+
+            }
+        }
         
-        let vc1 = UIView(frame: CGRectMake(0, 20 + 0, width/2, height/2))
-        vc1.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
-        vc1.layer.cornerRadius = 25
-        view.addSubview(vc1)
-        
-        let vc2 = UIView(frame: CGRectMake(width/2, 20 + 0, width/2, height/2))
-        vc2.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
-        vc2.layer.cornerRadius = 25
-        view.addSubview(vc2)
-        
-        let vc3 = UIView(frame: CGRectMake(0, 20 + height/2, width/2, height/2 - 20))
-        vc3.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
-        vc3.layer.cornerRadius = 25
-        view.addSubview(vc3)
-        
-        let vc4 = UIView(frame: CGRectMake(width/2, 20 + height/2, width/2, height/2 - 20))
-        vc4.backgroundColor = colors[Int(arc4random_uniform(4) + 1)].color()
-        vc4.layer.cornerRadius = 25
-        view.addSubview(vc4)
-        
-        
-        
-        let label: UILabel = UILabel(frame: CGRectMake(0, 20 + 0, width/2, height/2))
-        label.text = "Hello"
-        label.textAlignment = .Center
-        label.textColor = colors[Int(arc4random_uniform(4) + 1)].color()
-        vc1.addSubview(label)
-//
-//        for subview in view.subviews {
-//            
-//        }
-        
+        for subview in view.subviews {
+            let label: UILabel = UILabel(frame: CGRectMake(0, 20 + 0, width/2, height/2))
+            label.text = "Hello"
+            label.textAlignment = .Center
+            label.textColor = textcolors[Int(arc4random_uniform(4) + 1)].color()
+            subview.addSubview(label)
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
